@@ -1,3 +1,4 @@
-import regeneratorRuntime from 'regenerator-runtime'
-export default const baseURL = "https://fast-foods-api-main.herokuapp.com/"
 
+const BASE_URL = "https://fast-foods-api-main.herokuapp.com/api/v2";
+
+export  default  BASE_URL;

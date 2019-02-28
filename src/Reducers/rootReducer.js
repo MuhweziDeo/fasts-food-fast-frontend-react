@@ -1,11 +1,7 @@
 import { combineReducers } from 'redux';
+import signupReducer from './signUpReducer/signUpReducer';
 
-const testreducer=(state={},action)=>{
-  switch(action.type){
-    default:
-    return state
-  }
-}
+
 export default combineReducers({
-  testreducer
+  SignUpState:signupReducer
 })
