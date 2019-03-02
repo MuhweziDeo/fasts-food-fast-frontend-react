@@ -7,5 +7,7 @@ describe('App',()=>{
     it('should render',()=>{
         let wrapper=shallow(<App/>)
         expect(wrapper).toMatchSnapshot()
-    })
+    });
+
 })
+
