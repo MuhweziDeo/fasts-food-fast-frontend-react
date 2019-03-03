@@ -1,16 +1,15 @@
 import  React from 'react';
-import faker from 'faker';
 import { Dropdown, Image } from 'semantic-ui-react'
 import {Link } from 'react-router-dom';
 
 const trigger = (
     <span>
-    <Image avatar src={faker.internet.avatar()} /> {localStorage.getItem('username')}
+    <Image avatar src={localStorage.getItem('img')} /> {localStorage.getItem('username')}
   </span>
 )
 
 const options = [
-    { key: 'user', text: 'Profile', icon: 'user', as:Link, to:'/login'},
+    { key: 'user', text: 'Profile', icon: 'user', as:Link, to:'/dashboard'},
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick:()=>{
         localStorage.clear()
             window.location.reload()
