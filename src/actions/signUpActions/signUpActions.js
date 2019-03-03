@@ -20,6 +20,7 @@ const RegisterUser= (payload) => dispatch =>{
                    payload:data.response.message
                })
             toast.success('Signup successful')
+               window.location.reload()
                localStorage.setItem('token',data.token)
                localStorage.setItem('username',data.username)
            }

@@ -10,11 +10,10 @@ describe('<NavBarView/>',() => {
     } );
     it('should render on state change', () => {
         let wrapper = shallow(<NavBarView/>)
-        
+
         wrapper.setState({
             IsAuth:true
         })
-
         localStorage.setItem('token','token')
         expect(wrapper).toMatchSnapshot()
 
