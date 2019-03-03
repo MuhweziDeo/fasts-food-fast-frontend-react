@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Shared/> should render without crushing 1`] = `ShallowWrapper {}`;
-
-exports[`<Shared/> should render without crushing 2`] = `ShallowWrapper {}`;
