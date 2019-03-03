@@ -3,5 +3,3 @@
 exports[`<Shared/> should render without crushing 1`] = `ShallowWrapper {}`;
 
 exports[`<Shared/> should render without crushing 2`] = `ShallowWrapper {}`;
-
-exports[`<Shared/> should render without crushing 3`] = `ShallowWrapper {}`;

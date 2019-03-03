@@ -11,7 +11,7 @@
     "test:coverage": " jest --collectCoverage",
     "start": "webpack-dev-server --open --mode development --hot ",
     "build": "webpack --mode production --open --hot",
-    "heroku-prebuild": "npm install yarn && yarn install ",
+    "heroku-prebuild": "npx rimraf package-lock.json npm-shrinkwrap.json node_modules && npm install yarn && yarn install ",
     "heroku-postbuild": "yarn run build",
     "lint": "eslint  . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore"
