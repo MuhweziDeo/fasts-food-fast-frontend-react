@@ -13,7 +13,6 @@ const loginAction = payload => dispatch =>{
         res=>res.json()
     ).then(
         data=>{
-            console.log(data)
             if(data.token){
                 dispatch({
                     type:types.LOGIN_SUCCESS,

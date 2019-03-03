@@ -3,7 +3,6 @@ import  BASE_URL from '../../constants';
 import {toast} from 'react-toastify';
 
 const RegisterUser= (payload) => dispatch =>{
-    console.log(payload.username)
     return fetch(`${BASE_URL}/auth/signup`,{
         method:"POST",
         headers:{
@@ -13,7 +12,6 @@ const RegisterUser= (payload) => dispatch =>{
     }).then(res=>res.json()
     ).then(
        data=>{
-            console.log(data)
            if(data.response){
                dispatch({
                    type:types.REGISTER_SUCCESS,
