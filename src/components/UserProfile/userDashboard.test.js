@@ -5,7 +5,8 @@ import {shallow} from 'enzyme';
 describe('<UserDashboard/>',() => {
     it('should render without crushing', () => {
         const props ={
-            orderList:[{}]
+            orderList:[{}],
+            menu:[{}]
         }
         let wrapper = shallow(<UserDashboard {...props}/>)
         expect(wrapper).toMatchSnapshot()

@@ -1,4 +1,4 @@
-import {getUserOrdersAction}  from './userOrderActions';
+import {getUserOrdersAction,postAnOrderAction}  from './userOrderActions';
 import fetchMock from "fetch-mock";
 import BASE_URL from "../../constants";
 import types from "../types";
@@ -60,6 +60,62 @@ describe('aync actions for orders',() => {
             payload:"You havent placed any orders yet"
         }]
         return store.dispatch(getUserOrdersAction()).then(()=>{
+            expect(store.getActions()).toEqual(expectedAction)
+        })
+    });
+    it('should dispatch POST ORDER SUCCESS', () => {
+        const store = mockStore({})
+        fetchMock.post(`${BASE_URL}/users/orders`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {"message":"order placed successfully"}
+        })
+        const expectedAction = [{
+            type: types.POST_ORDER_SUCCESS,
+            message:"order placed successfully"
+        }]
+        return store.dispatch(postAnOrderAction({
+            payload:{}
+        })).then(()=>{
+            expect(store.getActions()).toEqual(expectedAction)
+        })
+    });
+    it('should dispatch POST ORDER SUCCESS', () => {
+        const store = mockStore({})
+        fetchMock.post(`${BASE_URL}/users/orders`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {"message":"order placed successfully"}
+        })
+        const expectedAction = [{
+            type: types.POST_ORDER_SUCCESS,
+            message:"order placed successfully"
+        }]
+        return store.dispatch(postAnOrderAction({
+            payload:{}
+        })).then(()=>{
+            expect(store.getActions()).toEqual(expectedAction)
+        })
+    });
+    it('should dispatch POST ORDER Fail', () => {
+        const store = mockStore({})
+        fetchMock.post(`${BASE_URL}/users/orders`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {"errors":""}
+        })
+        const expectedAction = [{
+            type: types.POST_ORDER_FAIL,
+            payload:{
+                errors:""
+            }
+        }]
+        return store.dispatch(postAnOrderAction({
+            payload:{}
+        })).then(()=>{
             expect(store.getActions()).toEqual(expectedAction)
         })
     });

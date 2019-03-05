@@ -3,7 +3,8 @@ import types from  '../../actions/types';
 const intiState={
     getOrdersSuccessful:false,
     payload:[],
-    message:''
+    message:'',
+    createOrdersSuccess:false
 };
 const userOrdersReducer =(state=intiState,action)=>{
     switch (action.type) {
@@ -26,10 +27,19 @@ const userOrdersReducer =(state=intiState,action)=>{
                 ...state,
                 getOrdersSuccessful:true,
                 message:action.payload
-
+            };
+        case (types.POST_ORDER_SUCCESS):
+            return{
+                ...state,
+                createOrdersSuccess: true,
+            }
+        case (types.POST_ORDER_FAIL):
+            return{
+                ...state,
+                createOrdersSuccess: false,
             }
         default:
-            return state
+            return state;
 
     }
 

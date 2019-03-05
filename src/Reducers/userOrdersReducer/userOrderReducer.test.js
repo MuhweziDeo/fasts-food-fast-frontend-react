@@ -6,7 +6,8 @@ describe('<userOrderReducer/>', () => {
         expect(userOrdersReducer(undefined,{})).toEqual({
             getOrdersSuccessful:false,
             payload:[],
-            message:''
+            message:'',
+            createOrdersSuccess: false,
         })
     });
 
@@ -17,7 +18,8 @@ describe('<userOrderReducer/>', () => {
         })).toEqual({
             getOrdersSuccessful:true,
             payload:[{}],
-            message:''
+            message:'',
+            createOrdersSuccess: false,
         })
     });
 
@@ -28,7 +30,8 @@ describe('<userOrderReducer/>', () => {
         })).toEqual({
             getOrdersSuccessful:false,
             payload:[],
-            message:"message"
+            message:"message",
+            createOrdersSuccess: false,
         })
     });
 
@@ -39,7 +42,31 @@ describe('<userOrderReducer/>', () => {
         })).toEqual({
             getOrdersSuccessful:true,
             payload:[],
-            message:"no orders placed"
+            message:"no orders placed",
+            createOrdersSuccess: false,
+        })
+    });
+
+    it('should change state on create order success', () => {
+        expect(userOrdersReducer(undefined,{
+            type:types.POST_ORDER_SUCCESS,
+            payload:[{}]
+        })).toEqual({
+            getOrdersSuccessful:false,
+            payload:[],
+            createOrdersSuccess: true,
+            message:""
+        })
+    });
+    it('should change state on create order fail', () => {
+        expect(userOrdersReducer(undefined,{
+            type:types.POST_ORDER_FAIL,
+            payload:""
+        })).toEqual({
+            getOrdersSuccessful:false,
+            payload:[],
+            createOrdersSuccess: false,
+            message:""
         })
     });
 })
