@@ -6,7 +6,7 @@ import store from './store';
 import '../node_modules/argon-design-system-free/assets/css/argon.css';
 import 'react-toastify/dist/ReactToastify.css';
 import faker from 'faker';
-localStorage.setItem('img',faker.internet.avatar())
+localStorage.setItem('img','https://image.flaticon.com/icons/svg/145/145849.svg')
 
 ReactDOM.render(
 <Provider store={store}>

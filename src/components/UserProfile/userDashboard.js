@@ -7,27 +7,28 @@ const userDashboard = props => {
     const orderList=props.orderList.map(order=>{
         console.log(props.orderList.length)
         return(
-            <div className="row">
-                <div className="col-md-2">
-                    {order.orderid}
-                </div>
-                <div className="col-md-2">
-                    {order.meal_name}
-                </div>
-                <div className="col-md-2">
-                    {order.quantity}
-                </div>
-                <div className="col-md-2">
-                    {order.status}
-                </div>
-                <div className="col-md-2">
-                    {order.location}
-                </div>
-                <div className="col-md-2">
-                    {dateConvetor(order.order_date)}
-                </div>
 
-            </div>
+            <div className="col-lg-4 mb-5">
+                <div className="card card-lift--hover shadow border-0">
+                  <div className="card-body py-5">
+                    <div className="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                      <i className="ni ni-istanbul"></i>
+                    </div>
+                    <h6 className="text-success text-uppercase">orderID: {order.orderid} </h6>
+                    <p className="description mt-3">Meal Name: {order.meal_name} </p>
+                    <p className="description mt-3">Quantity: {order.quantity} </p>
+                    <p className="description mt-3">Status: <span className="btn btn-info p-0">{order.status} </span></p>
+                    <p className="description mt-3">Location: {order.location} </p>
+                    <p className="description mt-3 ">PlacedOn: <strong>{dateConvetor(order.order_date)}</strong></p>     
+                    <div>
+                      <span className="badge badge-pill badge-primary">fastfoods</span>
+                      <span className="badge badge-pill badge-primary">takeaways</span>
+                    </div>
+                    <a href="#" className="btn btn-outline-primary mt-4">Edit</a>
+                    <a href="#" className="btn btn-outline-danger mt-4">Delete</a>
+                  </div>
+                </div>
+              </div>  
 
         )
     });
@@ -40,7 +41,7 @@ const userDashboard = props => {
         <main className="profile-page bg-primary">
             <section className="section">
                 <div className="container">
-                    <div className="card card-profile shadow mt-0">
+                    <div className="card card-profile mt-0">
                         <div className="px-4">
                             <div className="row justify-content-start">
                                 <div className="col-lg-3 order-lg-2">
@@ -95,22 +96,10 @@ const userDashboard = props => {
                                         <div className="tab-content" id="myTabContent">
                                             <div className="tab-pane fade show active" id="tabs-icons-text-1"
                                                  role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
-
-                                                <table className="table table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>OrderID</th>
-                                                        <th>MEAL NAME</th>
-                                                        <th>QUANTITY</th>
-                                                        <th>STATUS</th>
-                                                        <th>LOCATION</th>
-                                                        <th>DATE</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
-                                                {orderList}
+                                                 <div className="row">
+                                                 {orderList}
+                                                 </div>
+                                               
 
                                                 {props.message}
                                             </div>
