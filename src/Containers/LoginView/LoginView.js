@@ -6,7 +6,8 @@ import loginAction from '../../actions/loginActions/loginActions';
 export class LoginView extends  Component{
     state={
         username:"",
-        password:""
+        password:"",
+        loading:false
     }
 
     handleChange = e =>{
@@ -18,17 +19,22 @@ export class LoginView extends  Component{
     handleSubmit =e =>{
         e.preventDefault()
         this.props.loginAction(this.state)
+        this.setState({
+            loading:true
+        })
 
     }
     componentWillReceiveProps(nextProps, nextContext) {
         if(nextProps.loginState.loginSuccessful){
+            this.setState({
+                loading:false
+            })
             this.props.history.push('/')
         }
     }
-
     render() {
         return(
-            <Login onSubmit={this.handleSubmit} onChange={this.handleChange} />
+            <Login onSubmit={this.handleSubmit} onChange={this.handleChange} showLoader={this.state.loading} />
         )
     }
 }

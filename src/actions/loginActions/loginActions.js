@@ -18,7 +18,6 @@ const loginAction = payload => dispatch =>{
                     type:types.LOGIN_SUCCESS,
                     payload:data
                 })
-                toast.success('Login Successful')
                 window.location.reload()
                 localStorage.setItem('token',data.token)
                 localStorage.setItem('username',data.username)

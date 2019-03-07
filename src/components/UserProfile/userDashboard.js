@@ -43,17 +43,16 @@ const userDashboard = props => {
                 <div className="container">
                     <div className="card card-profile mt-0">
                         <div className="px-4">
-                            <div className="row justify-content-start">
-                                <div className="col-lg-3 order-lg-2">
-                                    <div className="card-profile-image">
+                            <div className="row">
+                                <div className="col-lg-3">
+                                    <div className="">
                                         <a href="#">
                                             <img src={localStorage.getItem('img')}
-                                                 className="rounded-circle" />
+                                                 className="rounded-circle img-fluid" />
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="text-center mt-5">
+                                <div className="text-center mt-5 col-lg-9 ">
                                 <h3>{localStorage.getItem('username')}
                                     <span className="font-weight-light">, 27</span>
                                 </h3>
@@ -65,6 +64,8 @@ const userDashboard = props => {
                                 </div>
                                 <div><i className="ni education_hat mr-2"></i>{faker.internet.email()}</div>
                             </div>
+                            </div>
+                          
                             <div className="mt-5 py-5 border-top text-center">
                                 <div className="nav-wrapper">
                                     <ul className="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text"
@@ -73,7 +74,7 @@ const userDashboard = props => {
                                             <a className="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab"
                                                data-toggle="tab" href="#tabs-icons-text-1" role="tab"
                                                aria-controls="tabs-icons-text-1" aria-selected="true"><i
-                                                className="ni ni-cloud-upload-96 mr-2"></i>Orders
+                                                className="ni ni-cloud-upload-96 mr-2"></i>My Orders
                                                    <span className="badge badge-danger ml-2">{props.orderList.length}</span>
                                             </a>
                                         </li>
@@ -134,11 +135,7 @@ const userDashboard = props => {
                                             </div>
                                             <div className="tab-pane fade" id="tabs-icons-text-3" role="tabpanel"
                                                  aria-labelledby="tabs-icons-text-3-tab">
-                                                <p className="description">Raw denim you probably haven't heard of them
-                                                    jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-                                                    master cleanse. Mustache cliche tempor, williamsburg carles vegan
-                                                    helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                                                    synth.</p>
+                                               Manage Profile Here
                                             </div>
                                         </div>
                                     </div>

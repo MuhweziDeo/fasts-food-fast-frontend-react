@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from '../Shared/loader';
 
 const signUp=props=>{
     return(
@@ -69,6 +70,7 @@ const signUp=props=>{
                                             </div>
                                         </div>
                                     </div>
+                                    {!props.showLoader ? null:  <Loader/> }
                                     <div className="text-center">
                                         <button type="submit" className="btn btn-primary mt-4">Create account</button>
                                     </div>

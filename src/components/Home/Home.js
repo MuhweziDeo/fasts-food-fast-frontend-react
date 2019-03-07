@@ -7,9 +7,9 @@ const Home=(props)=>{
             <div className="container py-md ">
                 <div className="row justify-content-between align-items-center">
                     <div className="col-lg-5 mb-5 mb-lg-0">
-                        <h1 className="text-white font-weight-light">Bootstrap carousel</h1>
-                        <p className="lead text-white mt-4">Argon Design System comes with four pre-built pages to help you
-                            get started faster. You can change the text and images and you're good to go.</p>
+                        <h1 className="text-white font-weight-light">Fasts Food Fast</h1>
+                        <p className="lead text-white mt-4">Food Delivery at a touch of a button</p>
+                        <p className="lead text-white mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                         <Link to="/signup" className="btn btn-white mt-4">Get Started</Link>
                     </div>
                     <div className="col-lg-6 mb-lg-auto">
@@ -44,6 +44,7 @@ const Home=(props)=>{
                     </div>
                 </div>
             </div>
+            
         </div>
 
     )

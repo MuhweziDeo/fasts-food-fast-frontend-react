@@ -12,7 +12,7 @@ const options = [
     { key: 'user', text: 'Profile', icon: 'user', as:Link, to:'/dashboard'},
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick:()=>{
         localStorage.clear()
-            window.location.reload()
+            window.location.replace('/')
 
         } },
 ]
