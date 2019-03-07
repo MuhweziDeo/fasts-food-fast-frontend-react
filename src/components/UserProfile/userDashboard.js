@@ -5,6 +5,7 @@ import dateConvetor from '../../helpers/utils';
 
 const userDashboard = props => {
     const orderList=props.orderList.map(order=>{
+        console.log(props.orderList.length)
         return(
             <div className="row">
                 <div className="col-md-2">
@@ -28,6 +29,11 @@ const userDashboard = props => {
 
             </div>
 
+        )
+    });
+    const menu = props.menu.map(meal => {
+        return(
+            <option key={meal.id}>{meal.meal_name}</option>
         )
     })
     return(
@@ -66,7 +72,9 @@ const userDashboard = props => {
                                             <a className="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab"
                                                data-toggle="tab" href="#tabs-icons-text-1" role="tab"
                                                aria-controls="tabs-icons-text-1" aria-selected="true"><i
-                                                className="ni ni-cloud-upload-96 mr-2"></i>Orders</a>
+                                                className="ni ni-cloud-upload-96 mr-2"></i>Orders
+                                                   <span className="badge badge-danger ml-2">{props.orderList.length}</span>
+                                            </a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab"
@@ -108,10 +116,32 @@ const userDashboard = props => {
                                             </div>
                                             <div className="tab-pane fade" id="tabs-icons-text-2" role="tabpanel"
                                                  aria-labelledby="tabs-icons-text-2-tab">
-                                                <p className="description">Cosby sweater eu banh mi, qui irure terry
-                                                    richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan
-                                                    aliquip quis cardigan american apparel, butcher voluptate nisi
-                                                    qui.</p>
+                                                <form onSubmit={props.onSubmit}>
+
+                                                    <div className="form-group">
+                                                        <label htmlFor="exampleFormControlSelect1">Select Meal</label>
+                                                        <select className="form-control" onChange={props.onChange} name="meal" required>
+                                                            <option >Select a Meal</option>
+                                                            {menu}
+                                                        </select>
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <input type="number" min="1" className="form-control" name="quantity"
+                                                                 placeholder="quantity" onChange={props.onChange}
+                                                        required />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <input type="text" className="form-control"
+                                                                  placeholder="location" name="location" onChange={props.onChange}
+                                                        required />
+                                                    </div>
+
+                                                    <div className="form-group">
+                                                        <input type="submit" className="btn btn-primary"
+                                                                       value="Order" />
+                                                    </div>
+
+                                                </form>
                                             </div>
                                             <div className="tab-pane fade" id="tabs-icons-text-3" role="tabpanel"
                                                  aria-labelledby="tabs-icons-text-3-tab">

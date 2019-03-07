@@ -2,7 +2,7 @@ import types from '../types';
 import  BASE_URL from '../../constants';
 import {toast} from 'react-toastify';
 
-const token = localStorage.getItem('token')
+const token = localStorage.getItem('token');
 export const getUserOrdersAction = () => dispatch =>{
     return(
         fetch(`${BASE_URL}/users/orders`,{
@@ -37,4 +37,31 @@ export const getUserOrdersAction = () => dispatch =>{
             }
         )
     )
+};
+
+export const postAnOrderAction = payload => dispatch => {
+    return fetch(`${BASE_URL}/users/orders`,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':`Bearer ${token}`
+        },
+        body:JSON.stringify(payload)
+    }).then(res=>res.json())
+        .then(data=>{
+            if(data.message==='order placed successfully'){
+                dispatch({
+                    type:types.POST_ORDER_SUCCESS,
+                    message:data.message
+                })
+                toast.success(data.message)
+            }
+            else {
+                dispatch({
+                    type:types.POST_ORDER_FAIL,
+                    payload:data
+                })
+                toast.error(data.message)
+            }
+        })
 };

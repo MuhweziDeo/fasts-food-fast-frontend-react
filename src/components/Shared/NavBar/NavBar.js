@@ -1,6 +1,6 @@
 import  React from 'react';
 import { Dropdown, Image } from 'semantic-ui-react'
-import {Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 const trigger = (
     <span>
@@ -13,6 +13,7 @@ const options = [
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick:()=>{
         localStorage.clear()
             window.location.reload()
+
         } },
 ]
 
