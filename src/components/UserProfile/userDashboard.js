@@ -75,7 +75,7 @@ const userDashboard = props => {
                                                data-toggle="tab" href="#tabs-icons-text-1" role="tab"
                                                aria-controls="tabs-icons-text-1" aria-selected="true"><i
                                                 className="ni ni-cloud-upload-96 mr-2"></i>My Orders
-                                                   <span className="badge badge-danger ml-2">{props.orderList.length}</span>
+                                                   <span className="btn btn-danger p-1 ml-2 ">{props.orderList.length}</span>
                                             </a>
                                         </li>
                                         <li className="nav-item">
