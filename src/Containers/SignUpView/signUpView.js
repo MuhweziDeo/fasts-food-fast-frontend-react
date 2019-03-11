@@ -9,7 +9,8 @@ export class SignUpView extends  Component{
     state = {
         username:"",
         password:"",
-        confirm:""
+        confirm:"",
+        loading:false,
     };
     handleChange = (e) => {
         this.setState({
@@ -19,12 +20,24 @@ export class SignUpView extends  Component{
     handleSubmit = e => {
         e.preventDefault()
         this.props.RegisterUser(this.state)
+        this.setState({
+            loading:true
+        })
 
     };
-    componentWillReceiveProps(nextProps, nextContext) {
+    componentWillReceiveProps(nextProps) {
         if(nextProps.signup.isSuccessful){
+            this.setState({
+                loading:false
+            })
             this.props.history.push('/')
         }
+        else{
+            this.setState({
+                loading:false
+            })
+        }
+       
 
     }
 
@@ -32,7 +45,7 @@ export class SignUpView extends  Component{
     render() {
         return(
             <div>
-                <SignUp onChange={this.handleChange} onSubmit={this.handleSubmit}/>
+                <SignUp onChange={this.handleChange} onSubmit={this.handleSubmit} showLoader={this.state.loading} />
                 <ToastContainer/>
             </div>
         )

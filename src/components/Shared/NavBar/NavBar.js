@@ -1,25 +1,25 @@
 import  React from 'react';
 import { Dropdown, Image } from 'semantic-ui-react'
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const trigger = (
     <span>
     <Image avatar src={localStorage.getItem('img')} /> {localStorage.getItem('username')}
   </span>
-)
+);
 
 const options = [
     { key: 'user', text: 'Profile', icon: 'user', as:Link, to:'/dashboard'},
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick:()=>{
         localStorage.clear()
-            window.location.reload()
+            window.location.replace('/')
 
         } },
 ]
 
-export const DropdownImageTrigger = () => (
+const DropdownImageTrigger = () => (
     <Dropdown trigger={trigger} options={options} pointing='top left' icon={null} />
-)
+);
 const NavBar = (props) =>{
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">

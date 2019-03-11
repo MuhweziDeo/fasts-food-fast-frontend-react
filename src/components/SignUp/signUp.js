@@ -1,4 +1,6 @@
 import React from "react";
+import Loader from '../Shared/loader';
+import {Link} from 'react-router-dom';
 
 const signUp=props=>{
     return(
@@ -13,15 +15,16 @@ const signUp=props=>{
                 <span></span>
                 <span></span>
             </div>
-            <div className="container pt-lg-md">
+            <div className="container pt-lg-md p-5">
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
                         <div className="card bg-secondary shadow border-0">
 
                             <div className="card-body px-lg-5 py-lg-5">
-                                <div className="text-center text-muted mb-4">
+                                <div className="text-center display-4">
                                     Register
                                 </div>
+                                <hr/>
                                 <form onSubmit={props.onSubmit}>
                                     <div className="form-group">
                                         <div className="input-group input-group-alternative mb-3">
@@ -29,7 +32,8 @@ const signUp=props=>{
                                                 <span className="input-group-text"><i
                                                     className="ni ni-hat-3"></i></span>
                                             </div>
-                                            <input name="username" className="form-control" placeholder="username" type="text" onChange={props.onChange} />
+                                            <input name="username" className="form-control" placeholder="username" type="text" onChange={props.onChange}
+                                            required />
                                         </div>
                                     </div>
                                     <div className="form-group ">
@@ -38,7 +42,8 @@ const signUp=props=>{
                                                 <span className="input-group-text"><i
                                                     className="ni ni-email-83"></i></span>
                                             </div>
-                                            <input name="password" className="form-control" placeholder="password" type="password" onChange={props.onChange} />
+                                            <input name="password" className="form-control" placeholder="password" type="password" onChange={props.onChange} 
+                                            required />
                                         </div>
                                     </div>
                                     <div className="form-group">
@@ -47,7 +52,8 @@ const signUp=props=>{
                                                 <span className="input-group-text"><i
                                                     className="ni ni-lock-circle-open"></i></span>
                                             </div>
-                                            <input name="confirm" className="form-control" placeholder="confirm" type="password" onChange={props.onChange} />
+                                            <input name="confirm" className="form-control" placeholder="confirm" type="password" onChange={props.onChange}
+                                            required />
                                         </div>
                                     </div>
                                     <div className="text-muted font-italic">
@@ -69,10 +75,15 @@ const signUp=props=>{
                                             </div>
                                         </div>
                                     </div>
+                                    {!props.showLoader ? null:  <Loader/> }
                                     <div className="text-center">
                                         <button type="submit" className="btn btn-primary mt-4">Create account</button>
                                     </div>
+
                                 </form>
+                                <div className="text-center mt-3">
+                                        <p>Already Have An Account Login <Link to="/login">Here</Link> </p>
+                                    </div>
                             </div>
                         </div>
                     </div>
